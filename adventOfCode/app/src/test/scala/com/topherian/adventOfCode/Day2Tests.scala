@@ -7,7 +7,16 @@ import org.junit.runner.RunWith
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatestplus.junit.JUnitRunner
 
+import scala.io.Source
+
 @RunWith(classOf[JUnitRunner])
 class Day2Tests extends AnyFunSuite {
 
+  test("Calculate depth with Sample input") {
+    val fileStream = getClass.getResourceAsStream("/Day2Sample.txt")
+    val lines: Map[String, String] = Source.fromInputStream(fileStream).getLines().toList.map((s: String) => s.split("\\ ").toList)
+      .collect{case key :: value :: _ => key -> value}.toMap
+    for(line<-lines)
+      println(line)
+  }
 }
